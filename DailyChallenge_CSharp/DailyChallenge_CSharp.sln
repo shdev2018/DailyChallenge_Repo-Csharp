@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyChallenge_CSharp", "DailyChallenge_CSharp\DailyChallenge_CSharp.csproj", "{43610BEF-AE69-4293-A3BE-CACF1E8FA82A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyChallenge_Csharp", "DailyChallenge_Csharp.csproj", "{9B2FD0F4-12D5-40A0-A8F3-41F33B0248E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{43610BEF-AE69-4293-A3BE-CACF1E8FA82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43610BEF-AE69-4293-A3BE-CACF1E8FA82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43610BEF-AE69-4293-A3BE-CACF1E8FA82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43610BEF-AE69-4293-A3BE-CACF1E8FA82A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2FD0F4-12D5-40A0-A8F3-41F33B0248E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2FD0F4-12D5-40A0-A8F3-41F33B0248E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2FD0F4-12D5-40A0-A8F3-41F33B0248E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2FD0F4-12D5-40A0-A8F3-41F33B0248E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {22C91FEC-43EE-41E4-8281-5CBC118FF2B5}
+		SolutionGuid = {97FCB9AC-2DCC-424B-9C74-E6CC2AEA291B}
 	EndGlobalSection
 EndGlobal
