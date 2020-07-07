@@ -1,2 +1,2 @@
 # DailyChallenge_Repo
-Repo for all daily practice coding challenges.
+Repo for all daily C# challenges.
