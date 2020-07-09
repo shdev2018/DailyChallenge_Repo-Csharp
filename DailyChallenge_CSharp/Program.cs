@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DailyChallenge_CSharp
 {
@@ -8,11 +9,46 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_07_07_2020(new List<int> { 3, 2, 1 });
-            Console.WriteLine(JsonConvert.SerializeObject(result));
-
+            var result = prob_09_07_2020(new List<int> { 1, 2, 0 });
+            #region OldProbs
+            //var result = prob_07_07_2020(new List<int> { 3, 2, 1 });
             //var result = prob_06_07_2020(new List<int> { 10, 15, 3, 7}, 17);
+            #endregion
+            Console.WriteLine(JsonConvert.SerializeObject(result));
         }
+
+        /// Given an array of integers, find the first missing positive integer in linear time and constant space. 
+        /// In other words, find the lowest positive integer that does not exist in the array. 
+        /// The array can contain duplicates and negative numbers as well.
+        private static int? prob_09_07_2020(IList<int> array)
+        {
+            array = array.OrderBy(i => i).ToList();
+            int? last = null;
+            foreach (var num in array)
+            {
+                if (last != null && num > 0)
+                {
+                    if (num != last && num > (last + 1))
+                    {
+                        if (last + 1 > 0)
+                        {
+                            return last + 1;
+                        }
+                        if (num > 1)
+                        {
+                            return 1;
+                        }
+                    }
+                }
+                last = num;
+            }
+            if (array.Count > 0)
+            {
+                return array.LastOrDefault() + 1;
+            }
+            return null;
+        }
+        // Completed in 00:09:56
 
         /// Given an array of integers, return a new array such that each element at index i of the new 
         /// array is the product of all the numbers in the original array except the one at i.
