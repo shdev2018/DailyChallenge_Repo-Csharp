@@ -9,16 +9,46 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_11_07_2020();
+            var result = prob_13_07_2020(326283);
             #region OldProbs
+            //var result = prob_11_07_2020();
             //var result = prob_09_07_2020(new List<int> { 1, 2, 0 });
             //var result = prob_07_07_2020(new List<int> { 3, 2, 1 });
             //var result = prob_06_07_2020(new List<int> { 10, 15, 3, 7}, 17);
             #endregion
-            Console.WriteLine(JsonConvert.SerializeObject(result.Get(2)));
+            Console.WriteLine(JsonConvert.SerializeObject(result));
         }
 
+        /// Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the number of ways it can be decoded.
+        /// For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
+        /// You can assume that the messages are decodable.For example, '001' is not allowed.
+        private static int prob_13_07_2020(long encoded)
+        {
+            int result = 0;
 
+            string inputStr = encoded.ToString();
+
+            for (int i = 0; i < inputStr.Length; i++)
+            {
+                if (i != inputStr.Length - 1)
+                {
+                    string couple = inputStr.Substring(i, 2);
+                    int cInt = int.Parse(couple);
+                    if (cInt <= 26 && cInt > 0)
+                    {
+                        result++;
+                    }
+                }
+
+                if (inputStr[i] != 0)
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+        // Completed in 00:05:47
 
         /// An XOR linked list is a more memory efficient doubly linked list. Instead of each node holding next 
         /// and prev fields, it holds a field named both, which is an XOR of the next node and the previous node. 
