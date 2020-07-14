@@ -9,8 +9,9 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_13_07_2020(326283);
+            var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
             #region OldProbs
+            //var result = prob_13_07_2020(326283);
             //var result = prob_11_07_2020();
             //var result = prob_09_07_2020(new List<int> { 1, 2, 0 });
             //var result = prob_07_07_2020(new List<int> { 3, 2, 1 });
@@ -18,6 +19,24 @@ namespace DailyChallenge_CSharp
             #endregion
             Console.WriteLine(JsonConvert.SerializeObject(result));
         }
+
+        /// Given a list of integers, write a function that returns the largest sum of non-adjacent numbers. 
+        /// Numbers can be 0 or negative.
+        private static int? prob_14_07_2020(IList<int> list)
+        {
+            int first = 0;
+            int second = 0;
+
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                int sum = Math.Max(list[i] + second, first);
+                second = first;
+                first = sum;
+            }
+
+            return first;
+        }
+        // Completed in 00:09:34
 
         /// Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the number of ways it can be decoded.
         /// For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
@@ -48,7 +67,7 @@ namespace DailyChallenge_CSharp
 
             return result;
         }
-        // Completed in 00:05:47
+        // Completed in 00:06:03
 
         /// An XOR linked list is a more memory efficient doubly linked list. Instead of each node holding next 
         /// and prev fields, it holds a field named both, which is an XOR of the next node and the previous node. 
