@@ -10,8 +10,9 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_15_07_2020();
+            var result = prob_16_07_2020("an");
             #region OldProbs
+            //var result = prob_15_07_2020();
             //var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
             //var result = prob_13_07_2020(326283);
             //var result = prob_11_07_2020();
@@ -20,6 +21,47 @@ namespace DailyChallenge_CSharp
             //var result = prob_06_07_2020(new List<int> { 10, 15, 3, 7}, 17);
             #endregion
             Console.WriteLine(JsonConvert.SerializeObject(result));
+        }
+
+        /// Implement an autocomplete system. That is, given a query string s and a set of all possible query strings, 
+        /// return all strings in the set that have s as a prefix. For example, given the query string de and the set 
+        /// of strings[dog, deer, deal], return [deer, deal].
+        public List<string> checkList { get; set; }
+        private static IList<string> prob_16_07_2020(string word)
+        {
+            var checklist = new List<string>
+            {
+                "Ant",
+                "Bear",
+                "Cat",
+                "Dog",
+                "Elephant",
+                "Fox",
+                "Gecko",
+                "Hippo",
+                "Iguana",
+                "Jaguar",
+                "Kangaroo",
+                "Leopard",
+                "Moose",
+                "Newt",
+                "Octopus",
+                "Pirahna",
+                "Quail",
+                "Raven",
+                "Swordfish",
+                "Turtles",
+                "Urial",
+                "Viper",
+                "Waterbear",
+                "Xenops",
+                "Yak",
+                "Zebra"
+            };
+
+            var possibilities = checklist.Where(w => w.ToLower().StartsWith(word.ToLower())).ToList();
+
+            return possibilities;
         }
 
         /// Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
