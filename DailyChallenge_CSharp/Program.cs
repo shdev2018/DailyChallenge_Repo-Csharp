@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace DailyChallenge_CSharp
 {
@@ -9,8 +10,9 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
+            var result = prob_15_07_2020();
             #region OldProbs
+            //var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
             //var result = prob_13_07_2020(326283);
             //var result = prob_11_07_2020();
             //var result = prob_09_07_2020(new List<int> { 1, 2, 0 });
@@ -19,6 +21,23 @@ namespace DailyChallenge_CSharp
             #endregion
             Console.WriteLine(JsonConvert.SerializeObject(result));
         }
+
+        /// Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
+        private static string prob_15_07_2020()
+        {
+            Func<string> f = delegate()
+            {
+                return "Do the dishes!";
+            };
+
+            return JobScheduler(f, 3000);
+        }
+        private static string JobScheduler(Func<string> f, int n)
+        {
+            Thread.Sleep(n);
+            return f();
+        }
+        // Completed in 00:02:23
 
         /// Given a list of integers, write a function that returns the largest sum of non-adjacent numbers. 
         /// Numbers can be 0 or negative.
