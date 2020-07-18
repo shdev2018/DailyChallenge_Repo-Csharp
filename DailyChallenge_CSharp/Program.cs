@@ -10,8 +10,9 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_16_07_2020("an");
+            var result = prob_18_07_2020(2, "abcbpbxav");
             #region OldProbs
+            //var result = prob_16_07_2020("an");
             //var result = prob_15_07_2020();
             //var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
             //var result = prob_13_07_2020(326283);
@@ -22,6 +23,44 @@ namespace DailyChallenge_CSharp
             #endregion
             Console.WriteLine(JsonConvert.SerializeObject(result));
         }
+
+        /// Given an integer k and a string s, find the length of the longest substring that contains at most k distinct characters.
+        private static int prob_18_07_2020(int k, string s)
+        {
+            List<int> cache = new List<int>() { 0 };
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                int j;
+                char cur = s[i];
+                int curNum = 1;
+
+                for (j = i + 1;  j < s.Length; j++)
+                {
+                    if (!(i == 0 && j == s.Length - 1))
+                    {
+                        if (s[j] == cur)
+                        {
+                            curNum++;
+                        }
+                    }
+                    if (curNum == k)
+                    {
+                        break;
+                    }
+                }
+
+                if (curNum == k)
+                {
+                    cache.Add(j + 1 - i);
+                }
+            }
+
+            int longest = cache.OrderByDescending(i => i).First();
+
+            return longest;
+        }
+        // Completed in 00:06:47
 
         /// Implement an autocomplete system. That is, given a query string s and a set of all possible query strings, 
         /// return all strings in the set that have s as a prefix. For example, given the query string de and the set 
@@ -63,6 +102,8 @@ namespace DailyChallenge_CSharp
 
             return possibilities;
         }
+        // Completed in 00:03:25
+
 
         /// Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
         private static string prob_15_07_2020()
