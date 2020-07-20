@@ -10,8 +10,9 @@ namespace DailyChallenge_CSharp
     {
         static void Main(string[] args)
         {
-            var result = prob_18_07_2020(2, "abcbpbxav");
+            var result = prob_20_07_2020(5, 4);
             #region OldProbs
+            //var result = prob_18_07_2020(2, "abcbpbxav");
             //var result = prob_16_07_2020("an");
             //var result = prob_15_07_2020();
             //var result = prob_14_07_2020(new List<int>{ 5, 1, 1, 5 } );
@@ -23,6 +24,45 @@ namespace DailyChallenge_CSharp
             #endregion
             Console.WriteLine(JsonConvert.SerializeObject(result));
         }
+
+        /// You run an e-commerce website and want to record the last N order ids in a log. Implement a data structure to accomplish 
+        /// this, with the following API: - record(order_id) : adds the order_id to the log - get_last(i) : gets the ith last element 
+        /// from the log. i is guaranteed to be smaller than or equal to N. You should be as efficient with time and space as possible.
+        public class log
+        {
+            public List<int> orderIds { get; set; }
+            public log()
+            {
+                orderIds = new List<int>();
+            }
+
+            public void record(int order_id)
+            {
+                orderIds.Add(order_id);
+            }
+
+            public int get_last(int i)
+            {
+                if (i <= orderIds.Count)
+                {
+                    List<int> sorted = orderIds.OrderBy(o => o).ToList();
+                    return sorted.FirstOrDefault();
+                }
+                return 0;
+            }
+        }
+        private static int prob_20_07_2020(int orderIds, int logNumber)
+        {
+            var log = new log();
+            for (int i = 0; i < orderIds; i++)
+            {
+                log.record(i);
+            }
+            var last = log.get_last(logNumber);
+
+            return last;
+        }
+        // COmpleted in 00:03:25
 
         /// Given an integer k and a string s, find the length of the longest substring that contains at most k distinct characters.
         private static int prob_18_07_2020(int k, string s)
